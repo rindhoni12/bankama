@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, BlogController};
+use App\Http\Controllers\{NasabahController, BlogController, SimulasiController};
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +36,5 @@ Route::patch('/admin/blog/{blog:slug}/update', [BlogController::class, 'update']
 Route::delete('/admin/blog/{blog:slug}/delete', [BlogController::class, 'destroy'])->name('blog.destroy');
 Route::get('/admin/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
-
-
+Route::get('/simulasi-kredit', [SimulasiController::class, 'simulasiKredit'])->name('simulasi.kredit');
+Route::post('/hitung-kredit', [SimulasiController::class, 'hitungKredit'])->name('hitung.kredit');

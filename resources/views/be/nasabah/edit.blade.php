@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="foto_ktp">Ubah Foto KTP (Optional)</label>
-                            <input type="file" name="foto_ktp" id="foto_ktp" class="form-control-file">
+                            <input type="file" accept="image/*" name="foto_ktp" id="foto_ktp" class="form-control-file">
                             {{-- <small for="foto_ktp_info">Foto KTP saat ini : {{ $nasabah->foto_ktp }}</small> --}}
                         </div>
                     </div>
