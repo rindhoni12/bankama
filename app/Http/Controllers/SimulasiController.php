@@ -53,10 +53,34 @@ class SimulasiController extends Controller
         $data['jumlahKredit'] = $jumlahKredit;
         $data['jangkaWaktu'] = $jangkaWaktu;
         $data['sukubungaPertahun'] = $sukubungaPertahun/12;
-        $data['pokok'] = $pokok;
-        $data['bunga'] = $bunga;
-        $data['jumlahAngsuran'] = $jumlahAngsuran;
+        $data['pokok'] = round($pokok);
+        $data['bunga'] = round($bunga);
+        $data['jumlahAngsuran'] = round($jumlahAngsuran);
         
+
+        return response()->json($data);
+    }
+
+    public function simulasiDeposito()
+    {
+        return view('fe.simulasi-deposito');
+    }
+
+    public function hitungDeposito(Request $request)
+    {
+        $jumlahKredit = $request->jumlahKredit;
+        $jangkaWaktu  = $request->jangkaWaktu;
+        $sukubungaPertahun = 2;
+
+        $bunga = $sukubungaPertahun/100 * $jumlahKredit * $jangkaWaktu/365;
+        $bungaBersih = $bunga * 80/100;
+        $totalPengembalianDeposito = $jumlahKredit + $bungaBersih;
+
+        $data['jumlahKredit'] = $jumlahKredit;
+        $data['jangkaWaktu'] = $jangkaWaktu;
+        $data['sukubungaPertahun'] = $sukubungaPertahun;
+        $data['totalPengembalianDeposito'] = round($totalPengembalianDeposito);
+        $data['bungaBersih'] = round($bungaBersih);
 
         return response()->json($data);
     }
