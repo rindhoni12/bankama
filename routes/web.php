@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 // Admin Pages Routes
-Route::get('/admin/dashboard', [NasabahController::class, 'dashboard'])->name('index');
+Route::get('/admin/dashboard2', [NasabahController::class, 'dashboard'])->name('index');
 
-Route::prefix('admin/nasabah')->group(function () {
+Route::prefix('admin/nasabah')->middleware(['auth'])->group(function () {
     Route::get('/', [NasabahController::class, 'index'])->name('nasabah.index');
     Route::get('/create', [NasabahController::class, 'create'])->name('nasabah.create');
     Route::post('/store', [NasabahController::class, 'store'])->name('nasabah.store');
@@ -31,15 +31,15 @@ Route::prefix('admin/nasabah')->group(function () {
     Route::get('/{nasabah}/show', [NasabahController::class, 'show'])->name('nasabah.show');
 });
 
-Route::prefix('admin/blog')->group(function () {
+Route::prefix('admin/blog')->middleware(['auth'])->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
     Route::get('/{blog:slug}/edit', [BlogController::class, 'edit'])->name('blog.edit');
     Route::patch('/{blog:slug}/update', [BlogController::class, 'update'])->name('blog.update');
     Route::delete('/{blog:slug}/destroy', [BlogController::class, 'destroy'])->name('blog.destroy');
-    Route::get('/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 });
+Route::get('blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
 
 // Landing Pages Routes
@@ -49,3 +49,10 @@ Route::prefix('simulasi')->group(function () {
     Route::get('/simulasi-deposito', [SimulasiController::class, 'simulasiDeposito'])->name('simulasi.deposito');
     Route::post('/hitung-deposito', [SimulasiController::class, 'hitungDeposito'])->name('hitung.deposito');
 });
+Auth::routes([
+    'register' => false, // Disable Register Routes
+    'reset' => false, // Disable Reset Password Routes
+    'verify' => false, // Disable Email Verification Routes
+]);
+
+Route::get('/admin/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
