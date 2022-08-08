@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, BlogController, SimulasiController};
+use App\Http\Controllers\{NasabahController, BlogController, SimulasiController, HomeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -49,10 +49,13 @@ Route::prefix('simulasi')->group(function () {
     Route::get('/simulasi-deposito', [SimulasiController::class, 'simulasiDeposito'])->name('simulasi.deposito');
     Route::post('/hitung-deposito', [SimulasiController::class, 'hitungDeposito'])->name('hitung.deposito');
 });
-Auth::routes([
-    'register' => false, // Disable Register Routes
-    'reset' => false, // Disable Reset Password Routes
-    'verify' => false, // Disable Email Verification Routes
-]);
 
-Route::get('/admin/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->group(function () {
+    Auth::routes([
+        // 'register' => false, // Disable Register Routes
+        'reset' => false, // Disable Reset Password Routes
+        'verify' => false, // Disable Email Verification Routes
+    ]);
+});
+
+Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('home');

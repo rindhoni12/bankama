@@ -15521,7 +15521,7 @@ be a descendant of the grid when it is being dragged.
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background-color: #c70404;
+    background-color: #009247;
     z-index: 1030;
     padding-right: 15px;
 }
@@ -15544,7 +15544,8 @@ be a descendant of the grid when it is being dragged.
     flex: 1 0 auto;
     color: #fff;
     text-align: center;
-    font-family: "Niconne";
+    /* font-family: "Niconne"; */
+    font-family: "Lato";
     padding: 0 15px;
     font-size: 26px;
     font-weight: 400;
@@ -15558,7 +15559,7 @@ be a descendant of the grid when it is being dragged.
         flex: 0 0 auto;
         display: block;
         width: 230px;
-        background-color: #9d0303;
+        background-color: #FCFCFC;
     }
 }
 
@@ -15594,7 +15595,7 @@ be a descendant of the grid when it is being dragged.
 .app-sidebar__toggle:focus,
 .app-sidebar__toggle:hover {
     color: #fff;
-    background-color: #00635a;
+    background-color: #006B34;
     text-decoration: none;
 }
 
@@ -16490,7 +16491,7 @@ be a descendant of the grid when it is being dragged.
 
 .material-half-bg {
     height: 100vh;
-    background-color: #e7e7e7;
+    background-color: #009247;
     position: fixed;
     top: 0;
     left: 0;
@@ -16500,8 +16501,15 @@ be a descendant of the grid when it is being dragged.
 }
 
 .material-half-bg .cover {
-    background-color: #009688;
-    height: 50vh;
+    /* background-color: #FEFEFE; */
+    background-image: url(https://bprsama.files.wordpress.com/2018/08/foto-kantor-copy1.jpg?w=1400&h=9999);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 99vh;
+
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
 }
 
 .m-loader {
@@ -16988,7 +16996,8 @@ be a descendant of the grid when it is being dragged.
 
 .login-content .logo {
     margin-bottom: 40px;
-    font-family: "Niconne";
+    /* font-family: "Niconne"; */
+    font-family: "Lato";
     color: #fff;
 }
 
@@ -17001,7 +17010,8 @@ be a descendant of the grid when it is being dragged.
     position: relative;
     min-width: 350px;
     min-height: 390px;
-    background-color: #fff;
+    background-color: #FCFCFC;
+    border-radius: 5px;
     -webkit-box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05),
         0px 29px 95px 0px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05),
@@ -17108,7 +17118,8 @@ be a descendant of the grid when it is being dragged.
 }
 
 .lockscreen-content .logo {
-    font-family: "Niconne";
+    /* font-family: "Niconne"; */
+    font-family: "Lato";
     margin-bottom: 40px;
     color: #fff;
 }

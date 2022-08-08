@@ -5,26 +5,26 @@
         <img class="app-sidebar__user-avatar" src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
             width="42" height="42" alt="User Image" />
         <div>
-            <p class="app-sidebar__user-name">John Doe</p>
-            <p class="app-sidebar__user-designation">Frontend Developer</p>
+            <p class="app-sidebar__user-name">{{ Auth::user()->name }}</p>
+            <p class="app-sidebar__user-designation">Admin</p>
         </div>
     </div>
     <ul class="app-menu">
         <li>
             <a class="app-menu__item {{ Request::segment(2) == 'dashboard' ? ' active' : '' }}"
-                href="{{ route('index') }}"><i class="app-menu__icon fa fa-dashboard"></i><span
+                href="{{ route('home') }}"><i class="app-menu__icon fa fa-dashboard"></i><span
                     class="app-menu__label">Dashboard</span></a>
         </li>
         <li>
             <a class="app-menu__item {{ Request::segment(2) == 'nasabah' ? ' active' : '' }}"
                 href="{{ route('nasabah.index') }}">
-                <i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Calon Nasabah</span>
+                <i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Calon Nasabah</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item {{ Request::segment(2) == 'blog' ? ' active' : '' }}"
                 href="{{ route('blog.index') }}">
-                <i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Blog Post</span>
+                <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Blog Post</span>
             </a>
         </li>
         {{-- <li>
