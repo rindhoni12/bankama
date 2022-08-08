@@ -9,7 +9,7 @@ use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
-    public function getAllPost()
+    public function getAllPosts()
     {
         $blogs = Blog::latest()->get();
         return PostResource::collection($blogs);

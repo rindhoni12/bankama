@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, BlogController, SimulasiController, HomeController};
+use App\Http\Controllers\{NasabahController, BlogController, SimulasiController, BannerController, HomeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,13 @@ Route::prefix('admin/blog')->middleware(['auth'])->group(function () {
 });
 Route::get('blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::prefix('admin/banner')->middleware(['auth'])->group(function () {
+    Route::get('/', [BannerController::class, 'index'])->name('banner.index');
+    Route::get('/create', [BannerController::class, 'create'])->name('banner.create');
+    Route::post('/store', [BannerController::class, 'store'])->name('banner.store');
+    Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('banner.edit');
+    Route::patch('/{banner}/update', [BannerController::class, 'update'])->name('banner.update');
+});
 
 // Landing Pages Routes
 Route::prefix('simulasi')->group(function () {
@@ -50,12 +57,12 @@ Route::prefix('simulasi')->group(function () {
     Route::post('/hitung-deposito', [SimulasiController::class, 'hitungDeposito'])->name('hitung.deposito');
 });
 
-Route::prefix('admin')->group(function () {
-    Auth::routes([
-        // 'register' => false, // Disable Register Routes
-        'reset' => false, // Disable Reset Password Routes
-        'verify' => false, // Disable Email Verification Routes
-    ]);
-});
+// Route::prefix('admin')->group(function () {});
+
+Auth::routes([
+    // 'register' => false, // Disable Register Routes
+    'reset' => false, // Disable Reset Password Routes
+    'verify' => false, // Disable Email Verification Routes
+]);
 
 Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('home');

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\{BannerController, PostController};
 
 
 /*
@@ -20,4 +20,7 @@ use App\Http\Controllers\Api\PostController;
 //     return $request->user();
 // });
 
-Route::get('v1/posts', [PostController::class, 'getAllPost']);
+Route::prefix('v1')->group(function () {
+    Route::get('banners', [BannerController::class, 'getAllBanners']);
+    Route::get('posts', [PostController::class, 'getAllPosts']);
+});
