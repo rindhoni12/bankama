@@ -31,7 +31,12 @@
                                 <td>{{$nasabah->agama}}</td>
                                 <td>{{$nasabah->jenis_kelamin}}</td>
                                 <td>{{$nasabah->nama_gadis_ibu}}</td>
-                                <td>{{$nasabah->foto_ktp}}</td>
+                                {{-- <td>{{$nasabah->foto_ktp}}</td> --}}
+                                <td>
+                                    <img src="{{ asset('storage/images/nasabahs/'.$nasabah->foto_ktp) }}"
+                                        class="img-thumbnail" alt="foto_ktp"
+                                        style=" max-width:100%; width:200px; height:auto; object-fit:cover;">
+                                </td>
                                 <td class="text-center">
                                     <form action="{{ route('nasabah.destroy', $nasabah->id)}}" method="post">
                                         <a href="{{ route('nasabah.show',$nasabah->id)}}"

@@ -14,28 +14,6 @@ class BannerController extends Controller
         return view('be.banner.index', compact('banners'));
     }
 
-    public function create()
-    {
-        return view('be.banner.create');
-    }
-
-    public function store()
-    {
-        $banners = request()->validate([
-            'banner' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'no_slide' => 'required',
-        ]);
-
-        $imageName = request()->no_slide;
-        $thumbnail = request()->file('banner');
-        $file_name = $imageName . '.' . $thumbnail->extension();
-        $thumbnailurl = $thumbnail->storeAs("public/images/banners", $file_name);
-        $banners['banner'] = $file_name;
-
-        Banner::create($banners);
-        return redirect(route('banner.index'))->with('success', 'Data berhasil disimpan!');
-    }
-
     public function edit(Banner $banner)
     {
         return view('be.banner.edit', compact('banner'));

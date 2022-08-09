@@ -33,6 +33,12 @@
                 <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Setting Banner</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ Request::segment(2) == 'bunga' ? ' active' : '' }}"
+                href="{{ route('bunga.index') }}">
+                <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Setting Bunga</span>
+            </a>
+        </li>
         {{-- <li>
             <a class="app-menu__item{{ request()->is('umkm') ? ' active' : '' }}" href="{{ route('umkm.index') }}">
                 <i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">UMKM</span>

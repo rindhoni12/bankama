@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, BlogController, SimulasiController, BannerController, HomeController};
+use App\Http\Controllers\{NasabahController, BlogController, SimulasiController, BannerController, BungaController, HomeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -43,10 +43,14 @@ Route::get('blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show
 
 Route::prefix('admin/banner')->middleware(['auth'])->group(function () {
     Route::get('/', [BannerController::class, 'index'])->name('banner.index');
-    Route::get('/create', [BannerController::class, 'create'])->name('banner.create');
-    Route::post('/store', [BannerController::class, 'store'])->name('banner.store');
     Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('banner.edit');
     Route::patch('/{banner}/update', [BannerController::class, 'update'])->name('banner.update');
+});
+
+Route::prefix('admin/bunga')->middleware(['auth'])->group(function () {
+    Route::get('/', [BungaController::class, 'index'])->name('bunga.index');
+    Route::get('/{bunga}/edit', [BungaController::class, 'edit'])->name('bunga.edit');
+    Route::patch('/{bunga}/update', [BungaController::class, 'update'])->name('bunga.update');
 });
 
 // Landing Pages Routes
@@ -56,8 +60,6 @@ Route::prefix('simulasi')->group(function () {
     Route::get('/simulasi-deposito', [SimulasiController::class, 'simulasiDeposito'])->name('simulasi.deposito');
     Route::post('/hitung-deposito', [SimulasiController::class, 'hitungDeposito'])->name('hitung.deposito');
 });
-
-// Route::prefix('admin')->group(function () {});
 
 Auth::routes([
     // 'register' => false, // Disable Register Routes
