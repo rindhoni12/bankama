@@ -10,6 +10,7 @@ class Bunga extends Model
     use HasFactory;
 
     protected $fillable = [
+        'jenis_investasi',
         'nisbah', 
         'nama_bulan1', 
         'nama_bulan2', 
