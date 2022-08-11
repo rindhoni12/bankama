@@ -9,7 +9,7 @@
                     <a href="{{ route('bunga.create') }}" class="btn btn-success btn-sm">Tambah</a>
                 </div> --}}
                 <div class="table-responsive align-content-center">
-                    <table class="table table-hover table-bordered" id="sampleTable">
+                    <table class="table table-hover table-bordered">
                         <thead class="text-center">
                             <tr>
                                 <th>Jenis Investasi</th>

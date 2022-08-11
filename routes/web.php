@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 // Admin Pages Routes
-Route::get('/admin/dashboard2', [NasabahController::class, 'dashboard'])->name('index');
+Route::get('/dashboard2', [NasabahController::class, 'dashboard'])->name('index');
 
-Route::prefix('admin/nasabah')->middleware(['auth'])->group(function () {
+Route::prefix('nasabah')->middleware(['auth'])->group(function () {
     Route::get('/', [NasabahController::class, 'index'])->name('nasabah.index');
     Route::get('/create', [NasabahController::class, 'create'])->name('nasabah.create');
     Route::post('/store', [NasabahController::class, 'store'])->name('nasabah.store');
@@ -31,7 +31,7 @@ Route::prefix('admin/nasabah')->middleware(['auth'])->group(function () {
     Route::get('/{nasabah}/show', [NasabahController::class, 'show'])->name('nasabah.show');
 });
 
-Route::prefix('admin/blog')->middleware(['auth'])->group(function () {
+Route::prefix('blog')->middleware(['auth'])->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
@@ -41,13 +41,13 @@ Route::prefix('admin/blog')->middleware(['auth'])->group(function () {
 });
 Route::get('blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::prefix('admin/banner')->middleware(['auth'])->group(function () {
+Route::prefix('banner')->middleware(['auth'])->group(function () {
     Route::get('/', [BannerController::class, 'index'])->name('banner.index');
     Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('banner.edit');
     Route::patch('/{banner}/update', [BannerController::class, 'update'])->name('banner.update');
 });
 
-Route::prefix('admin/bunga')->middleware(['auth'])->group(function () {
+Route::prefix('bunga')->middleware(['auth'])->group(function () {
     Route::get('/', [BungaController::class, 'index'])->name('bunga.index');
     Route::get('/{bunga}/edit', [BungaController::class, 'edit'])->name('bunga.edit');
     Route::patch('/{bunga}/update', [BungaController::class, 'update'])->name('bunga.update');
@@ -67,4 +67,4 @@ Auth::routes([
     'verify' => false, // Disable Email Verification Routes
 ]);
 
-Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
