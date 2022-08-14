@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{BannerController, BungaController, PostController};
+use App\Http\Controllers\Api\{BannerController, BungaController, PostController, NasabahController};
 
 
 /*
@@ -24,4 +24,6 @@ Route::prefix('v1')->group(function () {
     Route::get('banners', [BannerController::class, 'getAllBanners']);
     Route::get('bunga', [BungaController::class, 'getAllBungas']);
     Route::get('posts', [PostController::class, 'getAllPosts']);
+    
+    Route::post('nasabah', [NasabahController::class, 'createNasabah']);
 });

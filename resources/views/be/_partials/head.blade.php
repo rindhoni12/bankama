@@ -1,4 +1,4 @@
-<title>Data {{ ucfirst(Request::segment(2)) }} - {{ config('app.name') }}</title>
+<title>Data {{ ucfirst(Request::segment(1)) }} - {{ config('app.name') }}</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -14,7 +14,7 @@
         @endif
 
         <div class="tile">
-            <h3 class="tile-title text-capitalize">Ubah {{ Request::segment(2) }}</h3>
+            <h3 class="tile-title text-capitalize">Ubah {{ Request::segment(1) }}</h3>
             <div class="tile-body">
                 <form method="post" action="{{ route('nasabah.update', $nasabah->id) }}" class="form-horizontal"
                     enctype="multipart/form-data">
@@ -31,53 +31,66 @@
                             {{-- <small for="foto_ktp_info">Foto KTP saat ini : {{ $nasabah->foto_ktp }}</small> --}}
                         </div>
                     </div>
+
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
+                            <label for="jenis_produk">Jenis Produk</label>
+                            <select name="jenis_produk" class="form-control">
+                                <option {{$nasabah->jenis_produk == 'Tabungan iB Wadiah' ? 'selected' : ''}}
+                                    value="Tabungan iB Wadiah">
+                                    Tabungan iB Wadiah
+                                </option>
+                                <option {{$nasabah->jenis_produk == 'Tabungan iB Mudharabah' ? 'selected' : ''}}
+                                    value="Tabungan iB Mudharabah">
+                                    Tabungan iB Mudharabah
+                                </option>
+                                <option {{$nasabah->jenis_produk == 'Deposito iB Mudharabah' ? 'selected' : ''}}
+                                    value="Deposito iB Mudharabah">
+                                    Deposito iB Mudharabah
+                                </option>
+                                <option {{$nasabah->jenis_produk == 'Pembiayaan iB Wadiah' ? 'selected' : ''}}
+                                    value="Pembiayaan iB Wadiah">
+                                    Pembiayaan iB Wadiah
+                                </option>
+                                <option {{$nasabah->jenis_produk == 'Pembiayaan iB Musyarakah' ? 'selected' : ''}}
+                                    value="Pembiayaan iB Musyarakah">
+                                    Pembiayaan iB Musyarakah
+                                </option>
+                                <option {{$nasabah->jenis_produk == 'Pembiayaan iB Multijasa' ? 'selected' : ''}}
+                                    value="Pembiayaan iB Multijasa">
+                                    Pembiayaan iB Multijasa
+                                </option>
+                                <option {{$nasabah->jenis_produk == 'Pembiayaan iB Gadai Emas' ? 'selected' : ''}}
+                                    value="Pembiayaan iB Gadai Emas">
+                                    Pembiayaan iB Gadai Emas
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap"
                                 autocomplete="off" value="{{ old('nama') ?? $nasabah->nama }}">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nik">NIK</label>
+                            <input type="text" class="form-control" name="nik" placeholder="NIK" autocomplete="off"
+                                value="{{ old('nik') ?? $nasabah->nik }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="tgl_lahir">Tanggal Lahir</label>
+                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir"
+                                autocomplete="off" value="{{ old('tgl_lahir') ?? $nasabah->tgl_lahir }}">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="no_hp">Nomor HP / WA</label>
                             <input type="text" class="form-control" name="no_hp" placeholder="Nomor HP / WA"
                                 autocomplete="off" value="{{ old('no_hp') ?? $nasabah->no_hp }}">
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="nama_gadis_ibu">Nama Gadis Ibu</label>
-                            <input type="text" class="form-control" name="nama_gadis_ibu" placeholder="Nama Gadis Ibu"
-                                autocomplete="off" value="{{ old('nama_gadis_ibu') ?? $nasabah->nama_gadis_ibu }}">
-                        </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="agama">Agama</label>
-                            <select name="agama" class="form-control">
-                                {{-- <option selected hidden>Pilih Salah Satu</option> --}}
-                                <option value="Islam" {{ $nasabah->agama == 'Islam' ? 'selected' : '' }} >Islam
-                                </option>
-                                <option value="Kristen" {{ $nasabah->agama == 'Kristen' ? 'selected' : '' }} >Kristen
-                                </option>
-                                <option value="Katolik" {{ $nasabah->agama == 'Katolik' ? 'selected' : '' }} >Katolik
-                                </option>
-                                <option value="Hindu" {{ $nasabah->agama == 'Hindu' ? 'selected' : '' }} >Hindu
-                                </option>
-                                <option value="Budha" {{ $nasabah->agama == 'Budha' ? 'selected' : '' }} >Budha
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="jenis_kelamin">Jenis Kelamin</label>
-                            <select name="jenis_kelamin" class="form-control">
-                                {{-- <option selected hidden>Pilih Salah Satu</option> --}}
-                                <option value="Laki-laki" {{ $nasabah->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}
-                                    >Laki-laki
-                                </option>
-                                <option value="Perempuan" {{ $nasabah->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}
-                                    >Perempuan
-                                </option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="alamat">Alamat</label>
@@ -85,6 +98,7 @@
                                 autocomplete="off" value="{{ old('alamat') ?? $nasabah->alamat }}">
                         </div>
                     </div>
+
                     <div class="tile-footer">
                         <div class="row">
                             <div class="col-md-12 col-md-offset-3 text-right">

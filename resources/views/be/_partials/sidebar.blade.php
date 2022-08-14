@@ -11,63 +11,33 @@
     </div>
     <ul class="app-menu">
         <li>
-            <a class="app-menu__item {{ Request::segment(2) == 'dashboard' ? ' active' : '' }}"
+            <a class="app-menu__item {{ Request::segment(1) == 'dashboard' ? ' active' : '' }}"
                 href="{{ route('home') }}"><i class="app-menu__icon fa fa-dashboard"></i><span
                     class="app-menu__label">Dashboard</span></a>
         </li>
         <li>
-            <a class="app-menu__item {{ Request::segment(2) == 'nasabah' ? ' active' : '' }}"
+            <a class="app-menu__item {{ Request::segment(1) == 'nasabah' ? ' active' : '' }}"
                 href="{{ route('nasabah.index') }}">
                 <i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Calon Nasabah</span>
             </a>
         </li>
         <li>
-            <a class="app-menu__item {{ Request::segment(2) == 'blog' ? ' active' : '' }}"
+            <a class="app-menu__item {{ Request::segment(1) == 'blog' ? ' active' : '' }}"
                 href="{{ route('blog.index') }}">
                 <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Blog Post</span>
             </a>
         </li>
         <li>
-            <a class="app-menu__item {{ Request::segment(2) == 'banner' ? ' active' : '' }}"
+            <a class="app-menu__item {{ Request::segment(1) == 'banner' ? ' active' : '' }}"
                 href="{{ route('banner.index') }}">
-                <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Setting Banner</span>
+                <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Banner</span>
             </a>
         </li>
         <li>
-            <a class="app-menu__item {{ Request::segment(2) == 'bunga' ? ' active' : '' }}"
+            <a class="app-menu__item {{ Request::segment(1) == 'bunga' ? ' active' : '' }}"
                 href="{{ route('bunga.index') }}">
-                <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Setting Bunga</span>
+                <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga</span>
             </a>
         </li>
-        {{-- <li>
-            <a class="app-menu__item{{ request()->is('umkm') ? ' active' : '' }}" href="{{ route('umkm.index') }}">
-                <i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">UMKM</span>
-            </a>
-        </li> --}}
-        {{-- <li>
-            <a class="app-menu__item {{ Request::segment(1) == 'nasabah' ? 'active' : '' }}"
-                href="{{ route('nasabah.index') }}"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                    class="app-menu__label">Data Nasabah</span></a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Request::segment(1) == 'jaminanshm' ? 'active' : '' }}"
-                href="{{ route('jaminanshm.index') }}"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                    class="app-menu__label">Data Jaminan SHM</span></a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Request::segment(1) == 'jaminanbpkb' ? 'active' : '' }}"
-                href="{{ route('jaminanbpkb.index') }}"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                    class="app-menu__label">Data Jaminan BPKB</span></a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Request::segment(1) == 'jaminanijazah' ? 'active' : '' }}"
-                href="{{ route('jaminanijazah.index') }}"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                    class="app-menu__label">Data Jaminan Ijazah</span></a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Request::segment(1) == 'jaminandeposito' ? 'active' : '' }}"
-                href="{{ route('jaminandeposito.index') }}"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                    class="app-menu__label">Data Jaminan Deposito</span></a>
-        </li> --}}
     </ul>
 </aside>

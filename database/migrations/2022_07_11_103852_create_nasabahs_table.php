@@ -16,12 +16,12 @@ class CreateNasabahsTable extends Migration
         Schema::create('nasabahs', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('nik');
+            $table->date('tgl_lahir');
             $table->string('alamat');
             $table->string('no_hp');
-            $table->string('agama');
-            $table->string('jenis_kelamin');
-            $table->string('nama_gadis_ibu');
             $table->string('foto_ktp');
+            $table->string('jenis_produk');
             $table->timestamps();
         });
     }

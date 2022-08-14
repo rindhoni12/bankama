@@ -9,5 +9,13 @@ class Nasabah extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'alamat', 'no_hp', 'agama', 'jenis_kelamin','nama_gadis_ibu', 'foto_ktp'];
+    protected $fillable = [
+        'nama', 
+        'nik', 
+        'tgl_lahir',
+        'alamat', 
+        'no_hp', 
+        'foto_ktp',
+        'jenis_produk' 
+    ];
 }

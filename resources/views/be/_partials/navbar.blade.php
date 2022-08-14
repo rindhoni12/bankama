@@ -1,6 +1,9 @@
 <!-- Navbar-->
 <header class="app-header">
-    <a class="app-header__logo text-dark" href="{{ route('index') }}">{{ config('app.name') }}</a>
+    <a class="app-header__logo text-dark" href="{{ route('home') }}">
+        {{-- {{ config('app.name') }} --}}
+        <img src="{{ asset('assets/logo-full.png') }}" alt="" style="object-fit: cover; width: 150px;" class="mb-2">
+    </a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
         aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->

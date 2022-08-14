@@ -24,11 +24,11 @@ class NasabahController extends Controller
         $nasabahs = request()->validate([
             'foto_ktp' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'nama' => 'required',
-            'no_hp' => 'required',
-            'nama_gadis_ibu' => 'required',
-            'agama' => 'required',
-            'jenis_kelamin' => 'required',
+            'nik' => 'required',
+            'tgl_lahir' => 'required|date',
             'alamat' => 'required',
+            'no_hp' => 'required',
+            'jenis_produk' => 'required',
         ]);
 
         $imageName = time() . '-' . request()->nama;
@@ -56,11 +56,11 @@ class NasabahController extends Controller
         $nasabahs = request()->validate([
             'foto_ktp' => 'image|mimes:jpg,jpeg,png|max:2048',
             'nama' => 'required',
-            'no_hp' => 'required',
-            'nama_gadis_ibu' => 'required',
-            'agama' => 'required',
-            'jenis_kelamin' => 'required',
+            'nik' => 'required',
+            'tgl_lahir' => 'required|date',
             'alamat' => 'required',
+            'no_hp' => 'required',
+            'jenis_produk' => 'required',
         ]);
 
         if (request()->file('foto_ktp')) {

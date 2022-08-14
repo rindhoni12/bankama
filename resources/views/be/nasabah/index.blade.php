@@ -12,12 +12,12 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead class="text-center">
                             <tr>
+                                <th>Jenis Produk</th>
                                 <th>Nama</th>
+                                <th>NIK</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Alamat</th>
-                                <th>No HP</th>
-                                <th>Agama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Nama Ibu</th>
+                                <th>No. HP</th>
                                 <th>Foto KTP</th>
                                 <th style="width: 150px">Aksi</th>
                             </tr>
@@ -25,17 +25,16 @@
                         <tbody>
                             @foreach ($nasabahs as $nasabah)
                             <tr>
+                                <td>{{$nasabah->jenis_produk}}</td>
                                 <td>{{$nasabah->nama}}</td>
+                                <td>{{$nasabah->nik}}</td>
+                                <td>{{$nasabah->tgl_lahir}}</td>
                                 <td>{{$nasabah->alamat}}</td>
                                 <td>{{$nasabah->no_hp}}</td>
-                                <td>{{$nasabah->agama}}</td>
-                                <td>{{$nasabah->jenis_kelamin}}</td>
-                                <td>{{$nasabah->nama_gadis_ibu}}</td>
-                                {{-- <td>{{$nasabah->foto_ktp}}</td> --}}
                                 <td>
                                     <img src="{{ asset('storage/images/nasabahs/'.$nasabah->foto_ktp) }}"
                                         class="img-thumbnail" alt="foto_ktp"
-                                        style=" max-width:100%; width:200px; height:auto; object-fit:cover;">
+                                        style=" max-width:100%; width:150px; height:auto; object-fit:cover;">
                                 </td>
                                 <td class="text-center">
                                     <form action="{{ route('nasabah.destroy', $nasabah->id)}}" method="post">

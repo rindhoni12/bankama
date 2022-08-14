@@ -27,9 +27,9 @@ class BannerController extends Controller
         ]);
 
         if (request()->file('banner')) {
-            Storage::delete("public/images/banners/".request()->no_slide);
+            Storage::delete("public/images/banners/".$banner->banner);
 
-            $imageName = request()->no_slide;
+            $imageName = time() . '-' . request()->no_slide;
             $thumbnail = request()->file('banner');
             $file_name = $imageName . '.' . $thumbnail->extension();
             $thumbnailurl = $thumbnail->storeAs("public/images/banners", $file_name);

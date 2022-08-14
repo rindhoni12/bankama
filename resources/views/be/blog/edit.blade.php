@@ -14,7 +14,7 @@
         @endif
 
         <div class="tile">
-            <h3 class="tile-title text-capitalize">Ubah {{ Request::segment(2) }}</h3>
+            <h3 class="tile-title text-capitalize">Ubah {{ Request::segment(1) }}</h3>
             <div class="tile-body">
                 <form method="post" action="{{ route('blog.update', $blog->slug) }}" class="form-horizontal"
                     enctype="multipart/form-data">

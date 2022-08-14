@@ -14,7 +14,8 @@
         @endif
 
         <div class="tile">
-            <h3 class="tile-title text-capitalize">Lihat Data {{ Request::segment(2) }}</h3>
+            <h3 class="tile-title text-capitalize">Calon {{ Request::segment(1) . ' ' .
+                $nasabah->jenis_produk}} </h3>
             <div class="tile-body">
                 <form class="form-horizontal">
                     <div class="row">
@@ -29,53 +30,28 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-6">
                                     <label for="nama">Nama</label>
                                     <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap"
                                         autocomplete="off" value="{{ old('nama') ?? $nasabah->nama }}" disabled>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="no_hp">Nomor HP/WA</label>
-                                    <input type="text" class="form-control" name="no_hp" placeholder="Nomor HP / WA"
-                                        autocomplete="off" value="{{ old('no_hp') ?? $nasabah->no_hp }}" disabled>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="nama_gadis_ibu">Nama Gadis Ibu</label>
-                                    <input type="text" class="form-control" name="nama_gadis_ibu"
-                                        placeholder="Nama Gadis Ibu" autocomplete="off"
-                                        value="{{ old('nama_gadis_ibu') ?? $nasabah->nama_gadis_ibu }}" disabled>
+                                <div class="form-group col-md-6">
+                                    <label for="nik">NIK</label>
+                                    <input type="text" class="form-control" name="nik" placeholder="nik"
+                                        autocomplete="off" value="{{ old('nik') ?? $nasabah->nik }}" disabled>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="agama">Agama</label>
-                                    <select name="agama" class="form-control" disabled>
-                                        <option value="Islam" {{ $nasabah->agama == 'Islam' ? 'selected' : '' }} >Islam
-                                        </option>
-                                        <option value="Kristen" {{ $nasabah->agama == 'Kristen' ? 'selected' : '' }}
-                                            >Kristen
-                                        </option>
-                                        <option value="Katolik" {{ $nasabah->agama == 'Katolik' ? 'selected' : '' }}
-                                            >Katolik
-                                        </option>
-                                        <option value="Hindu" {{ $nasabah->agama == 'Hindu' ? 'selected' : '' }} >Hindu
-                                        </option>
-                                        <option value="Budha" {{ $nasabah->agama == 'Budha' ? 'selected' : '' }} >Budha
-                                        </option>
-                                    </select>
+                                    <label for="tgl_lahir">Tanggal Lahir</label>
+                                    <input type="text" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir"
+                                        autocomplete="off" value="{{ old('tgl_lahir') ?? $nasabah->tgl_lahir }}"
+                                        disabled>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="jenis_kelamin">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" class="form-control" disabled>
-                                        <option value="Laki-laki" {{ $nasabah->jenis_kelamin == 'Laki-laki' ? 'selected'
-                                            : '' }}
-                                            >Laki-laki
-                                        </option>
-                                        <option value="Perempuan" {{ $nasabah->jenis_kelamin == 'Perempuan' ? 'selected'
-                                            : '' }}
-                                            >Perempuan
-                                        </option>
-                                    </select>
+                                    <label for="no_hp">Nomor HP/WA</label>
+                                    <input type="text" class="form-control" name="no_hp" placeholder="Nomor HP / WA"
+                                        autocomplete="off" value="{{ old('no_hp') ?? $nasabah->no_hp }}" disabled>
                                 </div>
                             </div>
                             <div class="form-row">

@@ -15,7 +15,7 @@
         @endif
 
         <div class="tile">
-            <h3 class="tile-title text-capitalize">Tambah {{ Request::segment(2) }}</h3>
+            <h3 class="tile-title text-capitalize">Tambah {{ Request::segment(1) }}</h3>
             <div class="tile-body">
                 <form method="post" action="{{ route('nasabah.store') }}" class="form-horizontal"
                     enctype="multipart/form-data">
@@ -27,41 +27,40 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
+                            <label for="jenis_produk">Jenis Produk</label>
+                            <select name="jenis_produk" class="form-control">
+                                <option selected hidden>Pilih Salah Satu</option>
+                                <option value="Tabungan iB Wadiah">Tabungan iB Wadiah</option>
+                                <option value="Tabungan iB Mudharabah">Tabungan iB Mudharabah</option>
+                                <option value="Deposito iB Mudharabah">Deposito iB Mudharabah</option>
+                                <option value="Pembiayaan iB Wadiah">Pembiayaan iB Wadiah</option>
+                                <option value="Pembiayaan iB Musyarakah">Pembiayaan iB Musyarakah</option>
+                                <option value="Pembiayaan iB Multijasa">Pembiayaan iB Multijasa</option>
+                                <option value="Pembiayaan iB Gadai Emas">Pembiayaan iB Gadai Emas</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap"
                                 autocomplete="off" value="{{ old('nama') }}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nik">NIK</label>
+                            <input type="text" class="form-control" name="nik" placeholder="NIK" autocomplete="off"
+                                value="{{ old('nik') }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="tgl_lahir">Tanggal Lahir</label>
+                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir"
+                                autocomplete="off" value="{{ old('tgl_lahir') }}">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="no_hp">Nomor HP / WA</label>
                             <input type="text" class="form-control" name="no_hp" placeholder="Nomor HP / WA"
                                 autocomplete="off" value="{{ old('no_hp') }}">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="nama_gadis_ibu">Nama Gadis Ibu</label>
-                            <input type="text" class="form-control" name="nama_gadis_ibu" placeholder="Nama Gadis Ibu"
-                                autocomplete="off" value="{{ old('nama_gadis_ibu') }}">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="agama">Agama</label>
-                            <select name="agama" class="form-control">
-                                <option selected hidden>Pilih Salah Satu</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Katolik">Katolik</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Budha">Budha</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="jenis_kelamin">Jenis Kelamin</label>
-                            <select name="jenis_kelamin" class="form-control">
-                                <option selected hidden>Pilih Salah Satu</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
                         </div>
                     </div>
                     <div class="form-row">
