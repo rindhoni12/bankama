@@ -2,6 +2,8 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Main CSS-->
 <link rel="stylesheet" type="text/css" {{-- href="{{ asset('assets/css/main.css') }}" -- ini sama bawahnya sama, tp yg
     bawah lbh simple. gunakan yg ini kalau ambil gambar aja --}} href="/assets/css/main.css" />

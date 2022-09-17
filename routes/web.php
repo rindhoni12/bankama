@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, BlogController, SimulasiController, BannerController, BungaController, HomeController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,17 @@ Route::prefix('nasabah')->middleware(['auth'])->group(function () {
     Route::patch('/{nasabah}/update', [NasabahController::class, 'update'])->name('nasabah.update');
     Route::delete('/{nasabah}/destroy', [NasabahController::class, 'destroy'])->name('nasabah.destroy');
     Route::get('/{nasabah}/show', [NasabahController::class, 'show'])->name('nasabah.show');
+});
+
+Route::prefix('pengaduan')->middleware(['auth'])->group(function () {
+    Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
+    // Route::get('/create', [PengaduanController::class, 'create'])->name('nasabah.create');
+    // Route::post('/store', [PengaduanController::class, 'store'])->name('nasabah.store');
+    // Route::get('/{nasabah}/edit', [PengaduanController::class, 'edit'])->name('nasabah.edit');
+    // Route::patch('/{nasabah}/update', [PengaduanController::class, 'update'])->name('nasabah.update');
+    // Route::delete('/{nasabah}/destroy', [PengaduanController::class, 'destroy'])->name('nasabah.destroy');
+    Route::get('/{pengaduan}/show', [PengaduanController::class, 'show'])->name('pengaduan.show');
+    Route::get('/{pengaduan}/status', [PengaduanController::class, 'status'])->name('pengaduan.status');
 });
 
 Route::prefix('blog')->middleware(['auth'])->group(function () {

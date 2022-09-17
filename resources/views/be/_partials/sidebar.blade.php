@@ -22,6 +22,13 @@
             </a>
         </li>
         <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'pengaduan' ? ' active' : '' }}"
+                href="{{ route('pengaduan.index') }}">
+                <i class="app-menu__icon fa fa-exclamation-triangle"></i><span class="app-menu__label">Pengaduan
+                    Nasabah</span>
+            </a>
+        </li>
+        <li>
             <a class="app-menu__item {{ Request::segment(1) == 'blog' ? ' active' : '' }}"
                 href="{{ route('blog.index') }}">
                 <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Blog Post</span>
