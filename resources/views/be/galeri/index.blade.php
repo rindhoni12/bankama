@@ -5,6 +5,38 @@
     <div class="col-md-12">
         <div class="tile">
             <div class="tile-body">
+                <div class="table-responsive align-content-center">
+                    <table class="table table-hover table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th>URL Video Youtube</th>
+                                <th style="width: 150px">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($videos as $video)
+                            <tr>
+                                <td class="text-center">{{$video->url}}</td>
+
+                                <td class="text-center">
+                                    <a href="{{ route('video.edit',$video->id) }}" class="btn btn-primary mb-1 btn-sm">
+                                        Ubah
+                                    </a>
+                                </td>
+
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="tile-body">
                 <div class="mb-2 float-right">
                     <a href="{{ route('galeri.create') }}" class="btn btn-success btn-sm">Tambah</a>
                 </div>

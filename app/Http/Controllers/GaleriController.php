@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Galeri;
+use App\Models\{Galeri, Video};
 use Storage;
 
 class GaleriController extends Controller
@@ -11,7 +11,8 @@ class GaleriController extends Controller
     public function index()
     {
         $galeris = Galeri::latest()->get(); 
-        return view('be.galeri.index', compact('galeris'));
+        $videos = Video::all();
+        return view('be.galeri.index', compact('galeris', 'videos'));
     }
 
     public function create()

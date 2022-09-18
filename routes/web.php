@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController, GaleriController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController, GaleriController, VideoController};
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +69,12 @@ Route::prefix('galeri')->middleware(['auth'])->group(function () {
     Route::get('/create', [GaleriController::class, 'create'])->name('galeri.create');
     Route::post('/store', [GaleriController::class, 'store'])->name('galeri.store');
     Route::delete('/{galeri}/destroy', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+});
+
+Route::prefix('video')->middleware(['auth'])->group(function () {
+    // Route::get('/', [GaleriController::class, 'index'])->name('galeri.index');
+    Route::get('/{video}/edit', [VideoController::class, 'edit'])->name('video.edit');
+    Route::patch('/{video}/update', [VideoController::class, 'update'])->name('video.update');
 });
 
 // Landing Pages Routes
