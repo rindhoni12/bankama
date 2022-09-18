@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController, GaleriController, VideoController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController};
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,23 @@ Route::prefix('nasabah')->middleware(['auth'])->group(function () {
     Route::patch('/{nasabah}/update', [NasabahController::class, 'update'])->name('nasabah.update');
     Route::delete('/{nasabah}/destroy', [NasabahController::class, 'destroy'])->name('nasabah.destroy');
     Route::get('/{nasabah}/show', [NasabahController::class, 'show'])->name('nasabah.show');
+});
+
+Route::prefix('pembiayaan')->middleware(['auth'])->group(function () {
+    Route::get('/murabahah', [PembiayaanController::class, 'murabahah'])->name('pembiayaan.murabahah');
+    Route::get('/musyarakah', [PembiayaanController::class, 'musyarakah'])->name('pembiayaan.musyarakah');
+    Route::get('/multijasa', [PembiayaanController::class, 'multijasa'])->name('pembiayaan.multijasa');
+    Route::get('/gadaiemas', [PembiayaanController::class, 'gadaiemas'])->name('pembiayaan.gadaiemas');
+    Route::get('/{pembiayaan}/show', [PembiayaanController::class, 'show'])->name('pembiayaan.show');
+});
+
+Route::prefix('tabungan')->middleware(['auth'])->group(function () {
+    Route::get('/ibwadiah', [TabunganController::class, 'ibwadiah'])->name('tabungan.ibwadiah');
+    Route::get('/ibhaji', [TabunganController::class, 'ibhaji'])->name('tabungan.ibhaji');
+    Route::get('/ibpendidikan', [TabunganController::class, 'ibpendidikan'])->name('tabungan.ibpendidikan');
+    Route::get('/ibqurban', [TabunganController::class, 'ibqurban'])->name('tabungan.ibqurban');
+    Route::get('/ibsimuda', [TabunganController::class, 'ibsimuda'])->name('tabungan.ibsimuda');
+    Route::get('/{tabungan}/show', [TabunganController::class, 'show'])->name('tabungan.show');
 });
 
 Route::prefix('pengaduan')->middleware(['auth'])->group(function () {

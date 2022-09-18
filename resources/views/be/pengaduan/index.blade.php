@@ -24,7 +24,7 @@
                             <tr>
                                 <td>{{$pengaduan->nama}}</td>
                                 <td>{{$pengaduan->no_hp}}</td>
-                                <td>{{$pengaduan->pesan}}</td>
+                                <td>{!! Str::limit( strip_tags($pengaduan->pesan), 100 ) !!}</td>
                                 <td class="text-center">
                                     @if ($pengaduan->status == '0')
                                     <span class="badge badge-pill badge-danger">Belum Diproses</span>
