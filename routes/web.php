@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController, GaleriController};
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +62,13 @@ Route::prefix('bunga')->middleware(['auth'])->group(function () {
     Route::get('/', [BungaController::class, 'index'])->name('bunga.index');
     Route::get('/{bunga}/edit', [BungaController::class, 'edit'])->name('bunga.edit');
     Route::patch('/{bunga}/update', [BungaController::class, 'update'])->name('bunga.update');
+});
+
+Route::prefix('galeri')->middleware(['auth'])->group(function () {
+    Route::get('/', [GaleriController::class, 'index'])->name('galeri.index');
+    Route::get('/create', [GaleriController::class, 'create'])->name('galeri.create');
+    Route::post('/store', [GaleriController::class, 'store'])->name('galeri.store');
+    Route::delete('/{galeri}/destroy', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 });
 
 // Landing Pages Routes

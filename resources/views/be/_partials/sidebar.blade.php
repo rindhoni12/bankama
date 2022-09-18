@@ -46,5 +46,11 @@
                 <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'galeri' ? ' active' : '' }}"
+                href="{{ route('galeri.index') }}">
+                <i class="app-menu__icon fa fa-picture-o"></i><span class="app-menu__label">Setting Galeri</span>
+            </a>
+        </li>
     </ul>
 </aside>
