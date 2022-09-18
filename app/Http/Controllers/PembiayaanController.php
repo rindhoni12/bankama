@@ -7,28 +7,28 @@ use App\Models\Pembiayaan;
 
 class PembiayaanController extends Controller
 {
-    public function murabahah()
+    public function ibmurabahah()
     {
-        $murabahahs = Pembiayaan::where('jenis_produk', 'iB Murabahah')->get();
-        return view('be.pembiayaan.murabahah', compact('murabahahs'));
+        $ibmurabahahs = Pembiayaan::where('jenis_produk', 'iB Murabahah')->get();
+        return view('be.pembiayaan.ibmurabahah', compact('ibmurabahahs'));
     }
 
-    public function musyarakah()
+    public function ibmusyarakah()
     {
-        $musyarakahs = Pembiayaan::where('jenis_produk', 'iB Musyarakah')->get();
-        return view('be.pembiayaan.musyarakah', compact('musyarakahs'));
+        $ibmusyarakahs = Pembiayaan::where('jenis_produk', 'iB Musyarakah')->get();
+        return view('be.pembiayaan.ibmusyarakah', compact('ibmusyarakahs'));
     }
 
-    public function multijasa()
+    public function ibmultijasa()
     {
-        $multijasas = Pembiayaan::where('jenis_produk', 'iB Multijasa')->get();
-        return view('be.pembiayaan.multijasa', compact('multijasas'));
+        $ibmultijasas = Pembiayaan::where('jenis_produk', 'iB Multijasa')->get();
+        return view('be.pembiayaan.ibmultijasa', compact('ibmultijasas'));
     }
 
-    public function gadaiemas()
+    public function ibgadaiemas()
     {
-        $gadaiemas = Pembiayaan::where('jenis_produk', 'iB Gadai Emas')->get();
-        return view('be.pembiayaan.gadaiemas', compact('gadaiemas'));
+        $ibgadaiemas = Pembiayaan::where('jenis_produk', 'iB Gadai Emas')->get();
+        return view('be.pembiayaan.ibgadaiemas', compact('ibgadaiemas'));
     }
 
     public function show(Pembiayaan $pembiayaan)

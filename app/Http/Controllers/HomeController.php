@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Nasabah, Blog};
+use App\Models\{Nasabah, Blog, Tabungan, Pembiayaan, Pengaduan};
 
 class HomeController extends Controller
 {
@@ -27,6 +27,9 @@ class HomeController extends Controller
         // return view('be.dashboard');
 
         $data['jmlNasabah'] = Nasabah::count();
+        $data['jmlNasabahTabungan'] = Tabungan::count();
+        $data['jmlNasabahPembiayaan'] = Pembiayaan::count();
+        $data['jmlPengaduan'] = Pengaduan::count();
         $data['jmlPost'] = Blog::count();
         return view('be.dashboard', $data);
     }

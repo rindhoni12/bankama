@@ -22,7 +22,8 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="url">Link URL Youtube</label>
+                            <label for="url">Link URL Youtube (Cukup Ganti Kode Terakhirnya yang Setelah kalimat
+                                "embed")</label>
                             <input type="text" class="form-control" name="url" placeholder="Masukkan Link URL Youtube"
                                 autocomplete="off" value="{{ old('url') ?? $video->url }}">
                         </div>

@@ -32,10 +32,10 @@ Route::prefix('nasabah')->middleware(['auth'])->group(function () {
 });
 
 Route::prefix('pembiayaan')->middleware(['auth'])->group(function () {
-    Route::get('/murabahah', [PembiayaanController::class, 'murabahah'])->name('pembiayaan.murabahah');
-    Route::get('/musyarakah', [PembiayaanController::class, 'musyarakah'])->name('pembiayaan.musyarakah');
-    Route::get('/multijasa', [PembiayaanController::class, 'multijasa'])->name('pembiayaan.multijasa');
-    Route::get('/gadaiemas', [PembiayaanController::class, 'gadaiemas'])->name('pembiayaan.gadaiemas');
+    Route::get('/ibmurabahah', [PembiayaanController::class, 'ibmurabahah'])->name('pembiayaan.ibmurabahah');
+    Route::get('/ibmusyarakah', [PembiayaanController::class, 'ibmusyarakah'])->name('pembiayaan.ibmusyarakah');
+    Route::get('/ibmultijasa', [PembiayaanController::class, 'ibmultijasa'])->name('pembiayaan.ibmultijasa');
+    Route::get('/ibgadaiemas', [PembiayaanController::class, 'ibgadaiemas'])->name('pembiayaan.ibgadaiemas');
     Route::get('/{pembiayaan}/show', [PembiayaanController::class, 'show'])->name('pembiayaan.show');
 });
 
