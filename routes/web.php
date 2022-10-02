@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController};
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +73,12 @@ Route::prefix('banner')->middleware(['auth'])->group(function () {
     Route::get('/', [BannerController::class, 'index'])->name('banner.index');
     Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('banner.edit');
     Route::patch('/{banner}/update', [BannerController::class, 'update'])->name('banner.update');
+});
+
+Route::prefix('banner-mobile')->middleware(['auth'])->group(function () {
+    Route::get('/', [BannerMobileController::class, 'index'])->name('banner-mobile.index');
+    Route::get('/{banner}/edit', [BannerMobileController::class, 'edit'])->name('banner-mobile.edit');
+    Route::patch('/{banner}/update', [BannerMobileController::class, 'update'])->name('banner-mobile.update');
 });
 
 Route::prefix('bunga')->middleware(['auth'])->group(function () {

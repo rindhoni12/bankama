@@ -123,6 +123,12 @@
             </a>
         </li>
         <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'banner-mobile' ? ' active' : '' }}"
+                href="{{ route('banner-mobile.index') }}">
+                <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Banner Mobile</span>
+            </a>
+        </li>
+        <li>
             <a class="app-menu__item {{ Request::segment(1) == 'bunga' ? ' active' : '' }}"
                 href="{{ route('bunga.index') }}">
                 <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga</span>

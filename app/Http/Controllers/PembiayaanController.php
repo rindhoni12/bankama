@@ -9,25 +9,25 @@ class PembiayaanController extends Controller
 {
     public function ibmurabahah()
     {
-        $ibmurabahahs = Pembiayaan::where('jenis_produk', 'iB Murabahah')->get();
+        $ibmurabahahs = Pembiayaan::where('jenis_produk', 'pembiayaan_ib_murabahah')->get();
         return view('be.pembiayaan.ibmurabahah', compact('ibmurabahahs'));
     }
 
     public function ibmusyarakah()
     {
-        $ibmusyarakahs = Pembiayaan::where('jenis_produk', 'iB Musyarakah')->get();
+        $ibmusyarakahs = Pembiayaan::where('jenis_produk', 'pembiayaan_ib_musyarakah')->get();
         return view('be.pembiayaan.ibmusyarakah', compact('ibmusyarakahs'));
     }
 
     public function ibmultijasa()
     {
-        $ibmultijasas = Pembiayaan::where('jenis_produk', 'iB Multijasa')->get();
+        $ibmultijasas = Pembiayaan::where('jenis_produk', 'pembiayaan_ib_multijasa')->get();
         return view('be.pembiayaan.ibmultijasa', compact('ibmultijasas'));
     }
 
     public function ibgadaiemas()
     {
-        $ibgadaiemas = Pembiayaan::where('jenis_produk', 'iB Gadai Emas')->get();
+        $ibgadaiemas = Pembiayaan::where('jenis_produk', 'ib_gadai_emas')->get();
         return view('be.pembiayaan.ibgadaiemas', compact('ibgadaiemas'));
     }
 
