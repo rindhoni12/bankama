@@ -116,6 +116,29 @@
                 <i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Blog Post</span>
             </a>
         </li>
+        <li class="treeview {{ Request::segment(1) == 'laporan' ? ' is-expanded' : '' }}">
+            <a class="app-menu__item" href="#" data-toggle="treeview">
+                <i class="app-menu__icon fa fa-users"></i>
+                <span class="app-menu__label">Laporan</span>
+                <i class="treeview-indicator fa fa-angle-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'triwulan' ? ' active' : '' }}"
+                        href="{{ route('triwulan.index') }}">
+                        <i class="icon fa fa-circle-o"></i>
+                        Laporan Triwulan
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'ibmusyarakah' ? ' active' : '' }}"
+                        href="{{ route('pembiayaan.ibmusyarakah') }}">
+                        <i class="icon fa fa-circle-o"></i>
+                        Laporan GCG
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li>
             <a class="app-menu__item {{ Request::segment(1) == 'banner' ? ' active' : '' }}"
                 href="{{ route('banner.index') }}">

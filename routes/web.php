@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController};
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +98,15 @@ Route::prefix('video')->middleware(['auth'])->group(function () {
     // Route::get('/', [GaleriController::class, 'index'])->name('galeri.index');
     Route::get('/{video}/edit', [VideoController::class, 'edit'])->name('video.edit');
     Route::patch('/{video}/update', [VideoController::class, 'update'])->name('video.update');
+});
+
+Route::prefix('laporan')->middleware(['auth'])->group(function () {
+    Route::get('/triwulan', [TriwulanController::class, 'index'])->name('triwulan.index');
+    Route::get('/triwulan/create', [TriwulanController::class, 'create'])->name('triwulan.create');
+    Route::post('/triwulan/store', [TriwulanController::class, 'store'])->name('triwulan.store');
+    Route::get('/triwulan/{triwulan}/edit', [TriwulanController::class, 'edit'])->name('triwulan.edit');
+    Route::patch('/triwulan/{triwulan}/update', [TriwulanController::class, 'update'])->name('triwulan.update');
+    Route::delete('/triwulan/{triwulan}/destroy', [TriwulanController::class, 'destroy'])->name('triwulan.destroy');
 });
 
 // Landing Pages Routes
