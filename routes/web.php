@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController};
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +107,13 @@ Route::prefix('laporan')->middleware(['auth'])->group(function () {
     Route::get('/triwulan/{triwulan}/edit', [TriwulanController::class, 'edit'])->name('triwulan.edit');
     Route::patch('/triwulan/{triwulan}/update', [TriwulanController::class, 'update'])->name('triwulan.update');
     Route::delete('/triwulan/{triwulan}/destroy', [TriwulanController::class, 'destroy'])->name('triwulan.destroy');
+
+    Route::get('/gcg', [GcgController::class, 'index'])->name('gcg.index');
+    Route::get('/gcg/create', [GcgController::class, 'create'])->name('gcg.create');
+    Route::post('/gcg/store', [GcgController::class, 'store'])->name('gcg.store');
+    Route::get('/gcg/{gcg}/edit', [GcgController::class, 'edit'])->name('gcg.edit');
+    Route::patch('/gcg/{gcg}/update', [GcgController::class, 'update'])->name('gcg.update');
+    Route::delete('/gcg/{gcg}/destroy', [GcgController::class, 'destroy'])->name('gcg.destroy');
 });
 
 // Landing Pages Routes

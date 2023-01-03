@@ -131,8 +131,8 @@
                     </a>
                 </li>
                 <li>
-                    <a class="treeview-item {{ Request::segment(2) == 'ibmusyarakah' ? ' active' : '' }}"
-                        href="{{ route('pembiayaan.ibmusyarakah') }}">
+                    <a class="treeview-item {{ Request::segment(2) == 'gcg' ? ' active' : '' }}"
+                        href="{{ route('gcg.index') }}">
                         <i class="icon fa fa-circle-o"></i>
                         Laporan GCG
                     </a>
