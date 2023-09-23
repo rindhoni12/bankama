@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController};
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +69,21 @@ Route::prefix('blog')->middleware(['auth'])->group(function () {
 });
 Route::get('blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::prefix('visimisi')->middleware(['auth'])->group(function () {
+    Route::get('/', [VisimisiController::class, 'index'])->name('visimisi.index');
+    Route::get('/create', [VisimisiController::class, 'create'])->name('visimisi.create');
+    Route::post('/store', [VisimisiController::class, 'store'])->name('visimisi.store');
+    Route::get('/{visimisi}/edit', [VisimisiController::class, 'edit'])->name('visimisi.edit');
+    Route::patch('/{visimisi}/update', [VisimisiController::class, 'update'])->name('visimisi.update');
+});
+
+Route::prefix('mitra')->middleware(['auth'])->group(function () {
+    Route::get('/', [MitraController::class, 'index'])->name('mitra.index');
+    Route::get('/create', [MitraController::class, 'create'])->name('mitra.create');
+    Route::post('/store', [MitraController::class, 'store'])->name('mitra.store');
+    Route::delete('/{mitra}/destroy', [MitraController::class, 'destroy'])->name('mitra.destroy');
+});
+
 Route::prefix('banner')->middleware(['auth'])->group(function () {
     Route::get('/', [BannerController::class, 'index'])->name('banner.index');
     Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('banner.edit');
@@ -115,6 +130,33 @@ Route::prefix('laporan')->middleware(['auth'])->group(function () {
     Route::patch('/gcg/{gcg}/update', [GcgController::class, 'update'])->name('gcg.update');
     Route::delete('/gcg/{gcg}/destroy', [GcgController::class, 'destroy'])->name('gcg.destroy');
 });
+
+Route::prefix('tentang-kami')->middleware(['auth'])->group(function () {
+    Route::prefix('tentangkami')->middleware(['auth'])->group(function () {
+        Route::get('/', [TentangkamiController::class, 'index'])->name('tentangkami.index');
+        Route::get('/create', [TentangkamiController::class, 'create'])->name('tentangkami.create');
+        Route::post('/store', [TentangkamiController::class, 'store'])->name('tentangkami.store');
+        Route::get('/{tentangkami}/edit', [TentangkamiController::class, 'edit'])->name('tentangkami.edit');
+        Route::patch('/{tentangkami}/update', [TentangkamiController::class, 'update'])->name('tentangkami.update');
+    });
+    Route::prefix('award')->middleware(['auth'])->group(function () {
+        Route::get('/', [AwardController::class, 'index'])->name('award.index');
+        Route::get('/create', [AwardController::class, 'create'])->name('award.create');
+        Route::post('/store', [AwardController::class, 'store'])->name('award.store');
+        Route::delete('/{award}/destroy', [AwardController::class, 'destroy'])->name('award.destroy');
+    });
+    Route::prefix('direksi')->middleware(['auth'])->group(function () {
+        Route::get('/', [DireksiController::class, 'index'])->name('direksi.index');
+        Route::get('/create', [DireksiController::class, 'create'])->name('direksi.create');
+        Route::post('/store', [DireksiController::class, 'store'])->name('direksi.store');
+        Route::get('/{direksi}/edit', [DireksiController::class, 'edit'])->name('direksi.edit');
+        Route::patch('/{direksi}/update', [DireksiController::class, 'update'])->name('direksi.update');
+        Route::delete('/{direksi}/destroy', [DireksiController::class, 'destroy'])->name('direksi.destroy');
+    });
+});
+
+
+
 
 // Landing Pages Routes
 Route::prefix('simulasi')->group(function () {
