@@ -140,6 +140,18 @@
             </ul>
         </li>
         <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'visimisi' ? ' active' : '' }}"
+                href="{{ route('visimisi.index') }}">
+                <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Visi Misi</span>
+            </a>
+        </li>
+        <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'mitra' ? ' active' : '' }}"
+                href="{{ route('mitra.index') }}">
+                <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Mitra</span>
+            </a>
+        </li>
+        <li>
             <a class="app-menu__item {{ Request::segment(1) == 'banner' ? ' active' : '' }}"
                 href="{{ route('banner.index') }}">
                 <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Banner</span>
@@ -162,6 +174,49 @@
                 href="{{ route('galeri.index') }}">
                 <i class="app-menu__icon fa fa-picture-o"></i><span class="app-menu__label">Setting Galeri</span>
             </a>
+        </li>
+
+        <li class="treeview {{ Request::segment(1) == 'tentang-kami' ? ' is-expanded' : '' }}">
+            <a class="app-menu__item" href="#" data-toggle="treeview">
+                <i class="app-menu__icon fa fa-users"></i>
+                <span class="app-menu__label">Setting Tentag Kami</span>
+                <i class="treeview-indicator fa fa-angle-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'tentang-kami' ? ' active' : '' }}"
+                        href="{{ route('tentangkami.index') }}"><i class="icon fa fa-circle-o"></i>
+                        Tentang Kami
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'award' ? ' active' : '' }}"
+                        href="{{ route('award.index') }}"><i class="icon fa fa-circle-o"></i>
+                        Award
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'direksi' ? ' active' : '' }}"
+                        href="{{ route('direksi.index') }}">
+                        <i class="icon fa fa-circle-o"></i>
+                        Direksi
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'struktur-organisasi' ? ' active' : '' }}"
+                        href="{{ route('struktur.index') }}">
+                        <i class="icon fa fa-circle-o"></i>
+                        Upload Struktur Organisasi
+                    </a>
+                </li>
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'alamat-cabang' ? ' active' : '' }}"
+                        href="{{ route('alamat.index') }}">
+                        <i class="icon fa fa-circle-o"></i>
+                        Alamat Cabang
+                    </a>
+                </li>
+            </ul>
         </li>
 
 
