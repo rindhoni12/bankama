@@ -204,18 +204,18 @@
                 </li>
                 <li>
                     <a class="treeview-item {{ Request::segment(2) == 'struktur-organisasi' ? ' active' : '' }}"
-                        href="{{ route('struktur-organisasi.index') }}">
+                        href="{{ route('struktur.index') }}">
                         <i class="icon fa fa-circle-o"></i>
                         Upload Struktur Organisasi
                     </a>
                 </li>
-                {{-- <li>
+                <li>
                     <a class="treeview-item {{ Request::segment(2) == 'alamat-cabang' ? ' active' : '' }}"
                         href="{{ route('alamat.index') }}">
                         <i class="icon fa fa-circle-o"></i>
                         Alamat Cabang
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </li>
 

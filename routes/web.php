@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController};
 
 /*
 |--------------------------------------------------------------------------
@@ -152,6 +152,19 @@ Route::prefix('tentang-kami')->middleware(['auth'])->group(function () {
         Route::get('/{direksi}/edit', [DireksiController::class, 'edit'])->name('direksi.edit');
         Route::patch('/{direksi}/update', [DireksiController::class, 'update'])->name('direksi.update');
         Route::delete('/{direksi}/destroy', [DireksiController::class, 'destroy'])->name('direksi.destroy');
+    });
+    Route::prefix('struktur-organisasi')->middleware(['auth'])->group(function () {
+        Route::get('/', [StrukturController::class, 'index'])->name('struktur.index');
+        Route::get('/{struktur}/edit', [StrukturController::class, 'edit'])->name('struktur.edit');
+        Route::patch('/{struktur}/update', [StrukturController::class, 'update'])->name('struktur.update');
+    });
+    Route::prefix('alamat-cabang')->middleware(['auth'])->group(function () {
+        Route::get('/', [AlamatController::class, 'index'])->name('alamat.index');
+        Route::get('/create', [AlamatController::class, 'create'])->name('alamat.create');
+        Route::post('/store', [AlamatController::class, 'store'])->name('alamat.store');
+        Route::get('/{alamat}/edit', [AlamatController::class, 'edit'])->name('alamat.edit');
+        Route::patch('/{alamat}/update', [AlamatController::class, 'update'])->name('alamat.update');
+        Route::delete('/{alamat}/destroy', [AlamatController::class, 'destroy'])->name('alamat.destroy');
     });
 });
 
