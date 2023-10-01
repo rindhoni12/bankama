@@ -164,6 +164,13 @@
             </a>
         </li>
         <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'ilustrasi' ? ' active' : '' }}"
+                href="{{ route('ilustrasi.index') }}">
+                <i class="app-menu__icon fa fa-file-picture-o"></i><span class="app-menu__label">Setting
+                    Ilustrasi</span>
+            </a>
+        </li>
+        <li>
             <a class="app-menu__item {{ Request::segment(1) == 'bunga' ? ' active' : '' }}"
                 href="{{ route('bunga.index') }}">
                 <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga Tabungan</span>

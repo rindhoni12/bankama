@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController};
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +94,12 @@ Route::prefix('banner-mobile')->middleware(['auth'])->group(function () {
     Route::get('/', [BannerMobileController::class, 'index'])->name('banner-mobile.index');
     Route::get('/{banner}/edit', [BannerMobileController::class, 'edit'])->name('banner-mobile.edit');
     Route::patch('/{banner}/update', [BannerMobileController::class, 'update'])->name('banner-mobile.update');
+});
+
+Route::prefix('ilustrasi')->middleware(['auth'])->group(function () {
+    Route::get('/', [IlustrasiController::class, 'index'])->name('ilustrasi.index');
+    Route::get('/{ilustrasi}/edit', [IlustrasiController::class, 'edit'])->name('ilustrasi.edit');
+    Route::patch('/{ilustrasi}/update', [IlustrasiController::class, 'update'])->name('ilustrasi.update');
 });
 
 Route::prefix('bunga')->middleware(['auth'])->group(function () {
