@@ -118,7 +118,7 @@
         </li>
         <li class="treeview {{ Request::segment(1) == 'laporan' ? ' is-expanded' : '' }}">
             <a class="app-menu__item" href="#" data-toggle="treeview">
-                <i class="app-menu__icon fa fa-users"></i>
+                <i class="app-menu__icon fa fa-files-o"></i>
                 <span class="app-menu__label">Laporan</span>
                 <i class="treeview-indicator fa fa-angle-right"></i>
             </a>
@@ -154,19 +154,33 @@
         <li>
             <a class="app-menu__item {{ Request::segment(1) == 'banner' ? ' active' : '' }}"
                 href="{{ route('banner.index') }}">
-                <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Banner</span>
+                <i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Setting Banner</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item {{ Request::segment(1) == 'banner-mobile' ? ' active' : '' }}"
                 href="{{ route('banner-mobile.index') }}">
-                <i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Setting Banner Mobile</span>
+                <i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Setting Banner Mobile</span>
+            </a>
+        </li>
+        <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'ilustrasi' ? ' active' : '' }}"
+                href="{{ route('ilustrasi.index') }}">
+                <i class="app-menu__icon fa fa-file-picture-o"></i><span class="app-menu__label">Setting
+                    Ilustrasi</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item {{ Request::segment(1) == 'bunga' ? ' active' : '' }}"
                 href="{{ route('bunga.index') }}">
-                <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga</span>
+                <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga Tabungan</span>
+            </a>
+        </li>
+        <li>
+            <a class="app-menu__item {{ Request::segment(1) == 'bunga-pembiayaan' ? ' active' : '' }}"
+                href="{{ route('bungapembiayaan.index') }}">
+                <i class="app-menu__icon fa fa-percent"></i><span class="app-menu__label">Setting Bunga
+                    Pembiayaan</span>
             </a>
         </li>
         <li>
@@ -178,13 +192,13 @@
 
         <li class="treeview {{ Request::segment(1) == 'tentang-kami' ? ' is-expanded' : '' }}">
             <a class="app-menu__item" href="#" data-toggle="treeview">
-                <i class="app-menu__icon fa fa-users"></i>
-                <span class="app-menu__label">Setting Tentag Kami</span>
+                <i class="app-menu__icon fa fa-info-circle"></i>
+                <span class="app-menu__label">Setting Tentang Kami</span>
                 <i class="treeview-indicator fa fa-angle-right"></i>
             </a>
             <ul class="treeview-menu">
                 <li>
-                    <a class="treeview-item {{ Request::segment(2) == 'tentang-kami' ? ' active' : '' }}"
+                    <a class="treeview-item {{ Request::segment(2) == 'tentangkami' ? ' active' : '' }}"
                         href="{{ route('tentangkami.index') }}"><i class="icon fa fa-circle-o"></i>
                         Tentang Kami
                     </a>
