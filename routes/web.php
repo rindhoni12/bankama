@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController};
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +100,12 @@ Route::prefix('bunga')->middleware(['auth'])->group(function () {
     Route::get('/', [BungaController::class, 'index'])->name('bunga.index');
     Route::get('/{bunga}/edit', [BungaController::class, 'edit'])->name('bunga.edit');
     Route::patch('/{bunga}/update', [BungaController::class, 'update'])->name('bunga.update');
+});
+
+Route::prefix('bunga-pembiayaan')->middleware(['auth'])->group(function () {
+    Route::get('/', [BungapembiayaanController::class, 'index'])->name('bungapembiayaan.index');
+    Route::get('/{bungapembiayaan}/edit', [BungapembiayaanController::class, 'edit'])->name('bungapembiayaan.edit');
+    Route::patch('/{bungapembiayaan}/update', [BungapembiayaanController::class, 'update'])->name('bungapembiayaan.update');
 });
 
 Route::prefix('galeri')->middleware(['auth'])->group(function () {
