@@ -190,6 +190,39 @@
             </a>
         </li>
 
+        <li class="treeview {{ Request::segment(1) == 'setting-navbar' ? ' is-expanded' : '' }}">
+            <a class="app-menu__item" href="#" data-toggle="treeview">
+                <i class="app-menu__icon fa fa-info-circle"></i>
+                <span class="app-menu__label">Setting Navbar Produk</span>
+                <i class="treeview-indicator fa fa-angle-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'jenisproduk' ? ' active' : '' }}"
+                        href="{{ route('jenisproduk.index') }}"><i class="icon fa fa-chevron-circle-down"></i>
+                        1. Jenis Produk & Layanan
+                    </a>
+                </li>
+            </ul>
+            <ul class="treeview-menu">
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'navbar' ? ' active' : '' }}"
+                        href="{{ route('navbar.index') }}"><i class="icon fa fa-chevron-circle-down"></i>
+                        2. Kategori Produk
+                    </a>
+                </li>
+            </ul>
+            <ul class="treeview-menu">
+                <li>
+                    <a class="treeview-item {{ Request::segment(2) == 'produklayanan' ? ' active' : '' }}"
+                        href="{{ route('produklayanan.index') }}"><i class="icon fa fa-chevron-circle-down"></i>
+                        3. Produk & Layanan
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
         <li class="treeview {{ Request::segment(1) == 'tentang-kami' ? ' is-expanded' : '' }}">
             <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fa fa-info-circle"></i>

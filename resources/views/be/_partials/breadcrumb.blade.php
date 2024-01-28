@@ -9,5 +9,8 @@
             <a href=" {{ route('home') }} "><i class="fa fa-home fa-lg"></i></a>
         </li>
         <li class="breadcrumb-item">Data {{ Request::segment(1) }}</li>
+        @if (Request::segment(2))
+        <li class="breadcrumb-item">Data {{ Request::segment(2) }}</li>
+        @endif
     </ul>
 </div>

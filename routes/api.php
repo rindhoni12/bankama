@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{BannerController, BannerMobileController, BungaController, PostController, NasabahController, PengaduanController, GaleriController, TabunganController, PembiayaanController, LaporanController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController};
+use App\Http\Controllers\Api\{BannerController, BannerMobileController, BungaController, PostController, NasabahController, PengaduanController, GaleriController, TabunganController, PembiayaanController, LaporanController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController, NavbarController};
 
 
 /*
@@ -37,6 +37,10 @@ Route::prefix('v1')->group(function () {
     Route::get('direksi', [DireksiController::class, 'getAllDireksis']);
     Route::get('struktur', [StrukturController::class, 'getAllStrukturs']);
     Route::get('alamat', [AlamatController::class, 'getAllAlamats']);
+    
+    Route::get('navbar', [NavbarController::class, 'getJenisProdukNavbars']);
+    Route::get('navbar-list', [NavbarController::class, 'getNavbarList']);
+    Route::get('produklayanan-list', [NavbarController::class, 'getProdukLayananList']);
     
     // POST
     Route::post('nasabah', [NasabahController::class, 'createNasabah']);
