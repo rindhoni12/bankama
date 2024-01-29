@@ -41,6 +41,9 @@ Route::prefix('v1')->group(function () {
     Route::get('navbar', [NavbarController::class, 'getJenisProdukNavbars']);
     Route::get('navbar-list', [NavbarController::class, 'getNavbarList']);
     Route::get('produklayanan-list', [NavbarController::class, 'getProdukLayananList']);
+
+    Route::get('tabungan-list', [NavbarController::class, 'getDropdownTabunganList']);
+    Route::get('pembiayaan-list', [NavbarController::class, 'getDropdownPembiayaanList']);
     
     // POST
     Route::post('nasabah', [NasabahController::class, 'createNasabah']);

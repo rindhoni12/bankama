@@ -10,7 +10,7 @@ class NavbarController extends Controller
 {
     public function index()
     {
-        $navbars = Navbar::all();
+        $navbars = Navbar::orderBy('jenis_produk', 'DESC')->get();
         return view('be.setting-navbar.navbar.index', compact('navbars'));
     }
 

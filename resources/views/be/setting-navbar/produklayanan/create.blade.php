@@ -37,6 +37,21 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
+                            <label for="jenis_produk">Jenis Produk & Layanan</label>
+                            <select class="form-control" id="jenis_produk" name="jenis_produk">
+                                @forelse ($jenis_produks as $jenis_produk)
+                                <option value="{{ $jenis_produk->jenis_produk }}">
+                                    {{$jenis_produk->jenis_produk}}
+                                </option>
+                                @empty
+                                <option value="" disabled selected hidden>Buat Jenis Produk & Layanan terlebih dahulu
+                                </option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
                             <label for="jenis_tabungan">Kategori Produk</label>
                             <select class="form-control" id="jenis_tabungan" name="jenis_tabungan">
                                 @forelse ($kategoris as $kategori)

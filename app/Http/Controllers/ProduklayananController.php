@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Produklayanan, Navbar};
+use App\Models\{Produklayanan, Navbar, Jenisproduk};
 use Storage;
 use Str;
 
@@ -11,14 +11,15 @@ class ProduklayananController extends Controller
 {
     public function index()
     {
-        $produklayanans = Produklayanan::all();
+        $produklayanans = Produklayanan::orderBy('jenis_produk', 'DESC')->get();
         return view('be.setting-navbar.produklayanan.index', compact('produklayanans'));
     }
 
     public function create()
     {
+        $jenis_produks = Jenisproduk::select('jenis_produk')->get();
         $kategoris = Navbar::select('slug','nama_produk')->get();
-        return view('be.setting-navbar.produklayanan.create', compact('kategoris'));
+        return view('be.setting-navbar.produklayanan.create', compact('kategoris','jenis_produks'));
     }
 
     public function store()
@@ -28,6 +29,7 @@ class ProduklayananController extends Controller
             'nama_produklayanan' => 'required',
             'deskripsi' => 'required',
             'jenis_tabungan' => 'required',
+            'jenis_produk' => 'required',
         ]);
         $slug = Str::slug(request()->nama_produklayanan);
 
@@ -48,17 +50,18 @@ class ProduklayananController extends Controller
 
     public function edit(Produklayanan $produklayanan)
     {
+        $jenis_produks = Jenisproduk::select('jenis_produk')->get();
         $kategoris = Navbar::select('slug','nama_produk')->get();
-        return view('be.setting-navbar.produklayanan.edit', compact('produklayanan','kategoris'));
+        return view('be.setting-navbar.produklayanan.edit', compact('produklayanan','kategoris','jenis_produks'));
     }
 
     public function update(Produklayanan $produklayanan)
     {
         $produklayanans = request()->validate([
-            'foto_thumbnail' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'nama_produklayanan' => 'required',
             'deskripsi' => 'required',
             'jenis_tabungan' => 'required',
+            'jenis_produk' => 'required',
         ]);
         $slug = Str::slug(request()->nama_produklayanan);
 
