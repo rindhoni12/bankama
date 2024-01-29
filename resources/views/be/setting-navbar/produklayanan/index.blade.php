@@ -16,6 +16,7 @@
                                 <th>Nama Produk & Layanan</th>
                                 <th>Deskripsi</th>
                                 <th>Kategori</th>
+                                <th>Jenis Produk & Layanan</th>
                                 <th style="width: 175px">Aksi</th>
                             </tr>
                         </thead>
@@ -30,6 +31,7 @@
                                 <td>{{$produklayanan->nama_produklayanan}}</td>
                                 <td>{!! Str::limit( strip_tags($produklayanan->deskripsi), 75 ) !!}</td>
                                 <td>{{$produklayanan->jenis_tabungan}}</td>
+                                <td>{{$produklayanan->jenis_produk}}</td>
                                 <td class="text-center">
                                     <form action="{{ route('produklayanan.destroy', $produklayanan->id) }}"
                                         method="post">

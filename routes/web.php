@@ -168,7 +168,6 @@ Route::prefix('setting-navbar')->middleware(['auth'])->group(function () {
         Route::patch('/{produklayanan}/update', [ProduklayananController::class, 'update'])->name('produklayanan.update');
         Route::delete('/{produklayanan}/destroy', [ProduklayananController::class, 'destroy'])->name('produklayanan.destroy');
         Route::get('/{produklayanan}/show', [ProduklayananController::class, 'show'])->name('produklayanan.show');
-
     });
 });
 

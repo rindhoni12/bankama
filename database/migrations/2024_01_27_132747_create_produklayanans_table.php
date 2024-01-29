@@ -19,6 +19,7 @@ class CreateProduklayanansTable extends Migration
             $table->string('foto_thumbnail');
             $table->longText('deskripsi');
             $table->string('jenis_tabungan');
+            $table->string('jenis_produk');
             $table->timestamps();
         });
     }

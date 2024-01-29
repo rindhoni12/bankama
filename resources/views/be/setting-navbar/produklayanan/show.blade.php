@@ -15,7 +15,15 @@
 
         <div class="tile">
             <h3 class="tile-title">{{ $produklayanan->nama_produklayanan }}</h3>
-            <p><small><i>Kategori: <b>{{ $produklayanan->jenis_tabungan }}</b></i></small></p>
+            <p>
+                <small>
+                    <i> Kategori:
+                        <b>
+                            {{ $produklayanan->jenis_produk }}/{{$produklayanan->jenis_tabungan}}
+                        </b>
+                    </i>
+                </small>
+            </p>
             <div class="tile-body">
                 <form class="form-horizontal">
                     <div class="row">

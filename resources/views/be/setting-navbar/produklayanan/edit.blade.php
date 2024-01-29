@@ -44,6 +44,19 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
+                            <label for="jenis_produk">Jenis Produk</label>
+                            <select class="form-control" id="jenis_produk" name="jenis_produk">
+                                @foreach ($jenis_produks as $jenis_produk)
+                                <option value="{{ $jenis_produk->jenis_produk }}" {{ $jenis_produk->jenis_produk ==
+                                    $produklayanan->jenis_produk ? 'selected' : ''}}>
+                                    {{$jenis_produk->jenis_produk}}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
                             <label for="jenis_tabungan">Kategori Produk</label>
                             <select class="form-control" id="jenis_tabungan" name="jenis_tabungan">
                                 @foreach ($kategoris as $kategori)
