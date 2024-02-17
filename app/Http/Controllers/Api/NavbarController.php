@@ -103,4 +103,35 @@ class NavbarController extends Controller
             "navbar_all" => $array_data
         ]);
     }
+
+    public function getProdukListAll()
+    {
+        $array_produk = array();
+        $jenis_produks = Jenisproduk::select('id','jenis_produk')->get();
+
+        // Start of foreach the produk for every category Jenis Produk 
+        $i = 1;
+        foreach ($jenis_produks as $data) {
+            // Get produk by Jenis Produk 
+            $data_produklayanan_by_jenis_produk = Produklayanan::where('jenis_produk', $data->jenis_produk)->get();
+            $slug_jenis_produk = Str::slug($data->jenis_produk);
+
+            $id = $i;
+            $i++;
+
+            // To insert all the data into one array 
+            array_push($array_produk, array(
+                'id' => $id,
+                'judul' => $data->jenis_produk,
+                'slug' => $slug_jenis_produk,
+                'contentFull' => $data_produklayanan_by_jenis_produk,
+            ));
+        }
+        // End of foreach the produk for every category Jenis Produk 
+
+        return response()->json([
+            "produk_list" => $array_produk
+        ]);
+    }
+    
 }
