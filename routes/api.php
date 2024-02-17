@@ -38,13 +38,21 @@ Route::prefix('v1')->group(function () {
     Route::get('struktur', [StrukturController::class, 'getAllStrukturs']);
     Route::get('alamat', [AlamatController::class, 'getAllAlamats']);
     
+
+
+    ################
     Route::get('navbar', [NavbarController::class, 'getJenisProdukNavbars']);
     Route::get('navbar-list', [NavbarController::class, 'getNavbarList']);
     Route::get('produklayanan-list', [NavbarController::class, 'getProdukLayananList']);
 
-    Route::get('tabungan-list', [NavbarController::class, 'getDropdownTabunganList']);
-    Route::get('pembiayaan-list', [NavbarController::class, 'getDropdownPembiayaanList']);
+    // Used in production
+    Route::get('tabungan-list', [NavbarController::class, 'getDropdownTabunganList']); // Get list tabungan produk for dropdown in tabungan form
+    Route::get('pembiayaan-list', [NavbarController::class, 'getDropdownPembiayaanList']); // Get list pembiayaan produk for dropdown in pembiayaan form
+    Route::get('navbar-all', [NavbarController::class, 'getNavbarListAll']);  // Get all the navbar section part in one api hit
+    Route::get('produk-all', [NavbarController::class, 'getProdukListAll']);  // Get all the navbar section part in one api hit
     
+    ###################
+
     // POST
     Route::post('nasabah', [NasabahController::class, 'createNasabah']);
     Route::post('tabungan', [TabunganController::class, 'createTabungan']);

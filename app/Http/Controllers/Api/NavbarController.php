@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Navbar, Produklayanan, Jenisproduk};
+use Str;
 
 class NavbarController extends Controller
 {
@@ -54,6 +55,52 @@ class NavbarController extends Controller
 
         return response()->json([
             "pembiayaan_list" => $pembiayaan_list
+        ]);
+    }
+
+    public function getNavbarListAll()
+    {
+        $array_data = array();
+        $jenis_produks = Jenisproduk::select('id','jenis_produk')->get();
+        
+        // Start of foreach the category of Jenis Produk 
+        $ii = 1;
+        foreach ($jenis_produks as $data) {
+            $array_data_sub = array();
+
+            $slug_jenis_produk = Str::slug($data->jenis_produk);
+            $data_navbar_by_jenis_produk = Navbar::select('nama_produk')->where('jenis_produk', $data->jenis_produk)->get();
+
+            $id = $ii;
+            $to = "/" . $slug_jenis_produk;
+            $name = strtoupper($data->jenis_produk);
+            
+            // Start to foreach data navbar 
+            $i = 0; 
+            foreach ($data_navbar_by_jenis_produk as $data_sub) {
+                array_push($array_data_sub, array(
+                    'to' => "./layanan-kami" . $to . "/" . $i,
+                    'judul' => $data_navbar_by_jenis_produk[$i]->nama_produk,
+                ));
+                $i++;
+            }
+            // End to foreach data navbar 
+
+            $ii++;
+
+            // To insert all the data into one array 
+            array_push($array_data, array(
+                'id' => $id,
+                'to' => $to,
+                'name' => $name,
+                'sub' => $array_data_sub,
+            ));
+        }
+        // End of foreach the category of Jenis Produk 
+
+        // To response client with the data 
+        return response()->json([
+            "navbar_all" => $array_data
         ]);
     }
 }
