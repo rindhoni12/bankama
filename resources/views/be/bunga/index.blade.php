@@ -5,9 +5,9 @@
     <div class="col-md-12">
         <div class="tile">
             <div class="tile-body">
-                {{-- <div class="mb-2 float-right">
+                <div class="mb-2 float-right">
                     <a href="{{ route('bunga.create') }}" class="btn btn-success btn-sm">Tambah</a>
-                </div> --}}
+                </div>
                 <div class="table-responsive align-content-center">
                     <table class="table table-hover table-bordered">
                         <thead class="text-center">
@@ -35,9 +35,16 @@
                                 <td class="text-center">{{$bunga->bunga_bulan2}}%</td>
                                 <td class="text-center">{{$bunga->bunga_bulan3}}%</td>
                                 <td class="text-center">
-                                    <a href="{{ route('bunga.edit',$bunga->id) }}" class="btn btn-primary mb-1 btn-sm">
-                                        Ubah
-                                    </a>
+                                    <form action="{{ route('bunga.destroy', $bunga->id) }}" method="post">
+                                        <a href="{{ route('bunga.edit',$bunga->id) }}"
+                                            class="btn btn-primary mb-1 btn-sm">
+                                            Ubah
+                                        </a>
+                                        @csrf @method('DELETE')
+                                        <button class="btn btn-danger mb-1 btn-sm" type="submit">
+                                            Hapus
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

@@ -104,14 +104,20 @@ Route::prefix('ilustrasi')->middleware(['auth'])->group(function () {
 
 Route::prefix('bunga')->middleware(['auth'])->group(function () {
     Route::get('/', [BungaController::class, 'index'])->name('bunga.index');
+    Route::get('/create', [BungaController::class, 'create'])->name('bunga.create');
+    Route::post('/store', [BungaController::class, 'store'])->name('bunga.store');
     Route::get('/{bunga}/edit', [BungaController::class, 'edit'])->name('bunga.edit');
     Route::patch('/{bunga}/update', [BungaController::class, 'update'])->name('bunga.update');
+    Route::delete('/{bunga}/destroy', [BungaController::class, 'destroy'])->name('bunga.destroy');
 });
 
 Route::prefix('bunga-pembiayaan')->middleware(['auth'])->group(function () {
     Route::get('/', [BungapembiayaanController::class, 'index'])->name('bungapembiayaan.index');
+    Route::get('/create', [BungapembiayaanController::class, 'create'])->name('bungapembiayaan.create');
+    Route::post('/store', [BungapembiayaanController::class, 'store'])->name('bungapembiayaan.store');
     Route::get('/{bungapembiayaan}/edit', [BungapembiayaanController::class, 'edit'])->name('bungapembiayaan.edit');
     Route::patch('/{bungapembiayaan}/update', [BungapembiayaanController::class, 'update'])->name('bungapembiayaan.update');
+    Route::delete('/{bungapembiayaan}/destroy', [BungapembiayaanController::class, 'destroy'])->name('bungapembiayaan.destroy');
 });
 
 Route::prefix('galeri')->middleware(['auth'])->group(function () {
