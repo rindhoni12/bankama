@@ -141,7 +141,7 @@
         </li> --}}
 
         {{-- ######### --}}
-        <li class="treeview {{ Request::segment(1) == 'kategori-laporan' ? ' is-expanded' : '' }}">
+        <li class="treeview {{ Request::segment(2) == 'spesific_index' ? ' is-expanded' : '' }}">
             <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fa fa-files-o"></i>
                 <span class="app-menu__label">Publikasi</span>
@@ -152,7 +152,7 @@
                     <li>
                         <a 
                             class="treeview-item {{ Request::query('kategori_laporan') == $kategori_laporan->kategori_laporan ? 'active' : '' }}"
-                            href="{{ route('kategorilaporan.spesific_index', ['kategori_laporan' => $kategori_laporan->kategori_laporan]) }}">
+                            href="{{ route('publikasi.spesific_index', ['kategori_laporan' => $kategori_laporan->kategori_laporan]) }}">
                             <i class="icon fa fa-circle-o"></i>
                             {{ $kategori_laporan->kategori_laporan }}
                         </a>
@@ -165,7 +165,7 @@
                 
         {{-- ######### --}}
         <li>
-            <a class="app-menu__item {{ Request::segment(1) == 'kategori-laporan' ? ' active' : '' }}"
+            <a class="app-menu__item {{ Request::segment(1) == 'setting-kategori-publikasi' ? ' active' : '' }}"
                 href="{{ route('kategorilaporan.index') }}">
                 <i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Setting Kategori Publikasi</span>
             </a>
