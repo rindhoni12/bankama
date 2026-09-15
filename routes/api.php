@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{BannerController, BannerMobileController, BungaController, PostController, NasabahController, PengaduanController, GaleriController, TabunganController, PembiayaanController, LaporanController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController, NavbarController};
+use App\Http\Controllers\Api\{BannerController, BannerMobileController, BungaController, PostController, NasabahController, PengaduanController, GaleriController, TabunganController, PembiayaanController, LaporanController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController, NavbarController, PublikasiController};
 
 
 /*
@@ -53,4 +53,11 @@ Route::prefix('v1')->group(function () {
     Route::post('tabungan', [TabunganController::class, 'createTabungan']);
     Route::post('pembiayaan', [PembiayaanController::class, 'createPembiayaan']);
     Route::post('pengaduan', [PengaduanController::class, 'createPengaduan']);
+});
+
+
+Route::prefix('v2')->group(function () {
+    // GET
+    Route::get('publikasi', [PublikasiController::class, 'getAllPublikasi']);
+
 });
