@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController, NavbarController, JenisprodukController, ProduklayananController};
+use App\Http\Controllers\{NasabahController, PengaduanController, BlogController, SimulasiController, BannerController, BannerMobileController, BungaController, HomeController, GaleriController, VideoController, PembiayaanController, TabunganController, TriwulanController, GcgController, VisimisiController, MitraController, TentangkamiController, AwardController, DireksiController, StrukturController, AlamatController, BungapembiayaanController, IlustrasiController, NavbarController, JenisprodukController, ProduklayananController, KategoriLaporanController, LaporanController};
 
 /*
 |--------------------------------------------------------------------------
@@ -133,20 +133,40 @@ Route::prefix('video')->middleware(['auth'])->group(function () {
     Route::patch('/{video}/update', [VideoController::class, 'update'])->name('video.update');
 });
 
-Route::prefix('laporan')->middleware(['auth'])->group(function () {
-    Route::get('/triwulan', [TriwulanController::class, 'index'])->name('triwulan.index');
-    Route::get('/triwulan/create', [TriwulanController::class, 'create'])->name('triwulan.create');
-    Route::post('/triwulan/store', [TriwulanController::class, 'store'])->name('triwulan.store');
-    Route::get('/triwulan/{triwulan}/edit', [TriwulanController::class, 'edit'])->name('triwulan.edit');
-    Route::patch('/triwulan/{triwulan}/update', [TriwulanController::class, 'update'])->name('triwulan.update');
-    Route::delete('/triwulan/{triwulan}/destroy', [TriwulanController::class, 'destroy'])->name('triwulan.destroy');
+// Route::prefix('laporan')->middleware(['auth'])->group(function () {
+//     Route::get('/triwulan', [TriwulanController::class, 'index'])->name('triwulan.index');
+//     Route::get('/triwulan/create', [TriwulanController::class, 'create'])->name('triwulan.create');
+//     Route::post('/triwulan/store', [TriwulanController::class, 'store'])->name('triwulan.store');
+//     Route::get('/triwulan/{triwulan}/edit', [TriwulanController::class, 'edit'])->name('triwulan.edit');
+//     Route::patch('/triwulan/{triwulan}/update', [TriwulanController::class, 'update'])->name('triwulan.update');
+//     Route::delete('/triwulan/{triwulan}/destroy', [TriwulanController::class, 'destroy'])->name('triwulan.destroy');
 
-    Route::get('/gcg', [GcgController::class, 'index'])->name('gcg.index');
-    Route::get('/gcg/create', [GcgController::class, 'create'])->name('gcg.create');
-    Route::post('/gcg/store', [GcgController::class, 'store'])->name('gcg.store');
-    Route::get('/gcg/{gcg}/edit', [GcgController::class, 'edit'])->name('gcg.edit');
-    Route::patch('/gcg/{gcg}/update', [GcgController::class, 'update'])->name('gcg.update');
-    Route::delete('/gcg/{gcg}/destroy', [GcgController::class, 'destroy'])->name('gcg.destroy');
+//     Route::get('/gcg', [GcgController::class, 'index'])->name('gcg.index');
+//     Route::get('/gcg/create', [GcgController::class, 'create'])->name('gcg.create');
+//     Route::post('/gcg/store', [GcgController::class, 'store'])->name('gcg.store');
+//     Route::get('/gcg/{gcg}/edit', [GcgController::class, 'edit'])->name('gcg.edit');
+//     Route::patch('/gcg/{gcg}/update', [GcgController::class, 'update'])->name('gcg.update');
+//     Route::delete('/gcg/{gcg}/destroy', [GcgController::class, 'destroy'])->name('gcg.destroy');
+// });
+
+Route::prefix('setting-kategori-publikasi')->middleware(['auth'])->group(function () {
+    Route::get('/', [KategoriLaporanController::class, 'index'])->name('kategorilaporan.index');
+    Route::get('/create', [KategoriLaporanController::class, 'create'])->name('kategorilaporan.create');
+    Route::post('/store', [KategoriLaporanController::class, 'store'])->name('kategorilaporan.store');
+    Route::get('/{kategorilaporan}/edit', [KategoriLaporanController::class, 'edit'])->name('kategorilaporan.edit');
+    Route::patch('/{kategorilaporan}/update', [KategoriLaporanController::class, 'update'])->name('kategorilaporan.update');
+    Route::delete('/{kategorilaporan}/destroy', [KategoriLaporanController::class, 'destroy'])->name('kategorilaporan.destroy');
+});
+
+
+Route::prefix('publikasi')->middleware(['auth'])->group(function () {
+    Route::get('/spesific_index', [LaporanController::class, 'spesific_index'])->name('publikasi.spesific_index');
+
+    Route::get('/create', [LaporanController::class, 'create'])->name('publikasi.create');
+    Route::post('/store', [LaporanController::class, 'store'])->name('publikasi.store');
+    Route::get('/{laporan}/edit', [LaporanController::class, 'edit'])->name('publikasi.edit');
+    Route::patch('/{laporan}/update', [LaporanController::class, 'update'])->name('publikasi.update');
+    Route::delete('/{laporan}/destroy', [LaporanController::class, 'destroy'])->name('publikasi.destroy');
 });
 
 Route::prefix('setting-navbar')->middleware(['auth'])->group(function () {
