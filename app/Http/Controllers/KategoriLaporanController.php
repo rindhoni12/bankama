@@ -13,13 +13,6 @@ class KategoriLaporanController extends Controller
         return view('be.kategori-laporan.index', compact('kategori_laporans'));
     }
 
-    public function spesific_index(Request $request)
-    {
-        $kategori_laporan = $request->query('kategori_laporan');
-        $kategori_laporans = KategoriLaporan::where('kategori_laporan', $kategori_laporan)->get();
-        return view('be.kategori-laporan.spesificindex', compact('kategori_laporans'));
-    }
-
     public function create()
     {
         return view('be.kategori-laporan.create');
